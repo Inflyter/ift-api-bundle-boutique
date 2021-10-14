@@ -7,8 +7,8 @@ API bundle for Boutique functionality
 
 GENERAL NOTES FOR MAKING STARBOARD BUNDLES (with API-Platform):
 - Create a new empty API-Platform project (for running one bundle at a time)
-
-- Copy the required entities/ repos/ service classes to the API-Platform bundle project
+- Create /lib/Inflyter folder for bundles
+- Copy the required entities/ service classes to the API-Platform bundle project (repository classes need fiddling to work with API)
 
 - Clean up the entities:
     - remove unneeded fields
@@ -27,4 +27,18 @@ GENERAL NOTES FOR MAKING STARBOARD BUNDLES (with API-Platform):
         -> TODO: THIS NEEDS TO BE REPLACED BY THE REAL ENTITY FROM THE OTHER BUNDLES DURING COMPOSER INSTALL/ DEPLOYMENT
     - This should make the bundle usable without the rest of the system!
 
-- add bundle src/Entity folder to api_platform.yaml mapping->paths
+- add bundle lib/Inflyter/Bundle/Entity|Model folder to api_platform.yaml mapping->paths
+paths: ['%kernel.project_dir%/src/Entity', '%kernel.project_dir%/lib/Inflyter/BoutiqueBundle/src/Entity' , '%kernel.project_dir%/lib/Inflyter/BoutiqueBundle/src/Model']
+
+- composer.json (main project)
+"autoload": {
+        "psr-4": {
+            "Inflyter\\BoutiqueBundle\\": "lib/Inflyter/BoutiqueBundle/src/",
+            "App\\": "src/"
+        }
+    },
+
+- add Bundle file to bundle/src
+
+- define service classes in Resources/config/services.xml
+- load services with DependencyInjection/*Extension class

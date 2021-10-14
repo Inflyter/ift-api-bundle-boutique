@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Inflyter\BoutiqueBundle\Entity\Shop;
+namespace Inflyter\BoutiqueBundle\Entity\Shop;
 
+use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Inflyter\BoutiqueBundle\Repository\Shop\BoutiqueSectionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=BoutiqueSectionRepository::class)
+ * @ORM\Entity()
  */
 #[ApiResource(mercure: true)]
 
@@ -20,6 +20,7 @@ class BoutiqueSection
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
+    #[ApiProperty(identifier: true)]
     private int $id;
 
     /**

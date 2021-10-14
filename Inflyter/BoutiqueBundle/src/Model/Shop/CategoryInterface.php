@@ -1,7 +1,6 @@
 <?php
 
-
-namespace App\Inflyter\BoutiqueBundle\Model\Shop;
+namespace Inflyter\BoutiqueBundle\Model\Shop;
 
 /*
  * use the interface in the bundle which is then replaced by the entity in the actual app

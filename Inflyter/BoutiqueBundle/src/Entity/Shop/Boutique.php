@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Inflyter\BoutiqueBundle\Entity\Shop;
+namespace Inflyter\BoutiqueBundle\Entity\Shop;
 
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Inflyter\BoutiqueBundle\Model\Shop\CategoryInterface;
-use App\Inflyter\BoutiqueBundle\Repository\Shop\BoutiqueRepository;
+use Inflyter\BoutiqueBundle\Model\Shop\CategoryInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,7 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
- * @ORM\Entity(repositoryClass=BoutiqueRepository::class)
+ * @ORM\Entity()
  */
 #[ApiResource(
     denormalizationContext: ['groups' => ['write']],
@@ -27,13 +26,13 @@ class Boutique
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    #[Groups(["read", "write" ])]
+    #[Groups(["read", "write"])]
     #[ApiProperty(identifier: true)]
     private int $id;
 
     /**
      * https://symfony.com/doc/current/doctrine/resolve_target_entity.html
-     * @ORM\OneToOne(targetEntity="App\Model\Shop\CategoryInterface", inversedBy="boutique", fetch="LAZY", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Inflyter\BoutiqueBundle\Model\Shop\CategoryInterface", inversedBy="boutique", fetch="LAZY", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     #[Groups(["read"])]

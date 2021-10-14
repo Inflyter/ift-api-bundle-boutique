@@ -1,14 +1,14 @@
 <?php
 
 
-namespace App\Inflyter\BoutiqueBundle\Entity\Shop;
+namespace Inflyter\BoutiqueBundle\Entity\Shop;
 
-use App\Inflyter\BoutiqueBundle\Model\Shop\CategoryInterface;
+use Inflyter\BoutiqueBundle\Model\Shop\CategoryInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Dummy implementation for the bundle - should be replaced by real entity
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Entity()
  */
 
 class Category implements CategoryInterface

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Inflyter\BoutiqueBundle\Entity\Shop;
+namespace Inflyter\BoutiqueBundle\Entity\Shop;
 
+use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Inflyter\BoutiqueBundle\Repository\Shop\BoutiqueElementAssetsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=BoutiqueElementAssetsRepository::class)
+ * @ORM\Entity()
  */
 #[ApiResource(mercure: true)]
 
@@ -18,6 +18,7 @@ class BoutiqueElementAssets
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
+    #[ApiProperty(identifier: true)]
     private ?int $id;
 
     /**
