@@ -1,0 +1,5 @@
+#this file needs to be manually copied into the main project config/routes/inflyter.yaml to load all inflyter bundle routes
+
+_inflyter:
+    resource: "../../vendor/inflyter/*/Resources/config/routes.xml"
+    prefix: /inflyter

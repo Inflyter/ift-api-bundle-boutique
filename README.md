@@ -47,8 +47,7 @@ https://symfonycasts.com/screencast/symfony-bundle/bundle-directory
 		https://github.com/settings/tokens
 
 
-
-
-check in main project:
-- config/bundles.php has been updated with bundle
+in main project:
+- check config/bundles.php has been updated with bundle
 - if API-Platform doesn't find the entities, add the path in config/packages/api-platform.yaml (mapping -> paths)
+- if the bundle controller/ routes doesn't work copy the Resources/config/inflyter.yaml in config/routes
