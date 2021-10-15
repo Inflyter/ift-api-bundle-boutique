@@ -3,6 +3,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing
         http://symfony.com/schema/routing/routing-1.0.xsd">
-    <route id="inflyter_boutique_bundle_boutique_route_get_boutiques" controller="inflyter_boutique_bundle.boutique_controller::getBoutiquesAction" path="/rest/shop/boutiques/%categoryId%" ></route>
+    <route id="inflyter_boutique_bundle_boutique_route_get_boutiques" controller="inflyter_boutique_bundle.boutique_controller::getBoutiquesAction" path="/rest/shop/boutiques/{categoryId}" ></route>
 	<route id="inflyter_boutique_bundle_boutique_route_index_test" controller="inflyter_boutique_bundle.boutique_controller::index" path="/test" ></route>
 </routes>
