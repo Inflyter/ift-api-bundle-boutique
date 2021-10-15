@@ -42,3 +42,6 @@ paths: ['%kernel.project_dir%/src/Entity', '%kernel.project_dir%/lib/Inflyter/Bo
 
 - define service classes in Resources/config/services.xml
 - load services with DependencyInjection/*Extension class
+
+
+composer require inflyter/api-boutique "dev-main"
