@@ -6,6 +6,12 @@
     <services>
         <service id="inflyter_boutique_bundle.boutique_manager" class="Inflyter\BoutiqueBundle\Service\Shop\BoutiqueManager" />
         <service alias="inflyter_boutique_bundle.boutique_manager" id="Inflyter\BoutiqueBundle\Service\Shop\BoutiqueManager" />
-
+		<service id="inflyter_boutique_bundle.boutique_controller" class="Inflyter\BoutiqueBundle\Controller\Shop\BoutiqueController" public="true">
+		    <call method="setContainer">
+		        <argument type="service" id="Psr\Container\ContainerInterface"/>
+		    </call>
+		    <tag name="container.service_subscriber"/>
+		    <argument type="service" id="inflyter_boutique_bundle.boutique_manager"/>
+		</service>
     </services>
 </container>

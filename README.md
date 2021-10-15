@@ -35,6 +35,7 @@ GENERAL NOTES FOR MAKING BUNDLES (with API-Platform):
 
 
 BUNDLE NOTES:
+https://symfonycasts.com/screencast/symfony-bundle/bundle-directory
 - create git project
 - main directory is equivalent to app/src
 - same folders as normal src directory, plus DependencyInjection and Resources folders
