@@ -22,6 +22,27 @@ class BoutiqueController extends AbstractController {
         $this->boutiqueManager = $boutiqueManager;
     }
 
+	/**
+	 * TEST
+	 *
+	 * @Areas({"default"})
+	 * @Route(
+	 *     "/",
+	 *     methods={"GET"},
+	 * )
+	 * @param Request $request
+	 */
+	public function index(Request $request)
+	{
+		try {
+			$returnData = json_encode("TEST");
+			return new Response($returnData);
+		}
+		catch (\Exception $e) {
+			return new Response($e->getMessage());
+		}
+	}
+
 
     /**
      * Returns the boutiques for the given categoryID and shop
