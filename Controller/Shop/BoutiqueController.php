@@ -3,7 +3,6 @@
 namespace Inflyter\BoutiqueBundle\Controller\Shop;
 
 
-use http\Client\Response;
 use Inflyter\BoutiqueBundle\Service\Shop\BoutiqueManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,10 +35,10 @@ class BoutiqueController extends AbstractController {
 	{
 		try {
 			$returnData = json_encode("TEST");
-			return new Response($returnData);
+			return  $this->json($returnData);
 		}
 		catch (\Exception $e) {
-			return new Response($e->getMessage());
+			return  $this->json($e->getMessage());
 		}
 	}
 
@@ -61,10 +60,10 @@ class BoutiqueController extends AbstractController {
 
             $boutique = $this->boutiqueManager->formatBoutique($request, null, null);
             $returnData = ["boutique" => json_encode($boutique)];
-            return new Response($returnData);
+            return  $this->json($returnData);
         }
         catch (\Exception $e) {
-            return new Response($e->getMessage());
+            return  $this->json($e->getMessage());
         }
     }
 
