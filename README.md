@@ -4,10 +4,16 @@ API bundle for Boutique functionality
 - requires api bundle
 - requires easyadmin bundle
 
+INSTALLATION
+- and the bundle to composer.json in main project
+"repositories": [
+        {"type": "vcs", "url": "https://github.com/Inflyter/ift-api-bundle-boutique.git"}
+    ]
+- composer update
+- composer require inflyter/api-boutique "dev-main"
 
-GENERAL NOTES FOR MAKING STARBOARD BUNDLES (with API-Platform):
+GENERAL NOTES FOR MAKING BUNDLES (with API-Platform):
 - Create a new empty API-Platform project (for running one bundle at a time)
-- Create /lib/Inflyter folder for bundles
 - Copy the required entities/ service classes to the API-Platform bundle project (repository classes need fiddling to work with API)
 
 - Clean up the entities:
@@ -27,21 +33,21 @@ GENERAL NOTES FOR MAKING STARBOARD BUNDLES (with API-Platform):
         -> TODO: THIS NEEDS TO BE REPLACED BY THE REAL ENTITY FROM THE OTHER BUNDLES DURING COMPOSER INSTALL/ DEPLOYMENT
     - This should make the bundle usable without the rest of the system!
 
-- add bundle lib/Inflyter/Bundle/Entity|Model folder to api_platform.yaml mapping->paths
-paths: ['%kernel.project_dir%/src/Entity', '%kernel.project_dir%/lib/Inflyter/BoutiqueBundle/src/Entity' , '%kernel.project_dir%/lib/Inflyter/BoutiqueBundle/src/Model']
 
-- composer.json (main project)
-"autoload": {
-        "psr-4": {
-            "Inflyter\\BoutiqueBundle\\": "lib/Inflyter/BoutiqueBundle/src/",
-            "App\\": "src/"
-        }
-    },
-
-- add Bundle file to bundle/src
-
+BUNDLE NOTES:
+- create git project
+- main directory is equivalent to app/src
+- same folders as normal src directory, plus DependencyInjection and Resources folders
+- add Bundle class file in main directory (name is important)
 - define service classes in Resources/config/services.xml
-- load services with DependencyInjection/*Extension class
+- load services with DependencyInjection/*Extension class (name is important)
+- create a composer.json file in the main directory (name and namespace are important)
+- create a github auth token to access to repo
+		https://github.com/settings/tokens
 
 
-composer require inflyter/api-boutique "dev-main"
+
+
+check in main project:
+- config/bundles.php has been updated with bundle
+- if API-Platform doesn't find the entities, add the path in config/packages/api-platform.yaml (mapping -> paths)
