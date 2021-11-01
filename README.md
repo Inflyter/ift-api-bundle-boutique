@@ -4,15 +4,21 @@ API bundle for Boutique functionality
 - requires api bundle
 - requires easyadmin bundle
 
-INSTALLATION
-- and the bundle to composer.json in main project
-"repositories": [
-        {"type": "vcs", "url": "https://github.com/Inflyter/ift-api-bundle-boutique.git"}
-    ]
-- composer update
-- composer require inflyter/api-boutique "dev-main"
+<h1>INSTALLATION</h1>
 
-GENERAL NOTES FOR MAKING BUNDLES (with API-Platform):
+* create a new Github token: https://github.com/settings/tokens
+* add github token to project ???
+* Load IFT bundles, e.g.
+
+    * add the bundle to composer.json in main project **"repositories": [ {"type": "vcs", "url": "https://github.com/Inflyter/ift-api-bundle-boutique.git"} ]**
+    * composer update
+    * composer require inflyter/api-boutique "dev-main"
+    * add bundle in config/bundles.php **Inflyter\BoutiqueBundle\InflyterBoutiqueBundle::class => ['all' => true],**
+        * if API-Platform doesn't find the entities, add the path in config/packages/api-platform.yaml (mapping -> paths)
+        * if the bundle controller/ routes doesn't work copy **Resources/config/inflyter.yaml** into config/routes
+
+
+<h1>GENERAL NOTES FOR MAKING BUNDLES (with API-Platform)</h1>
 - Create a new empty API-Platform project (for running one bundle at a time)
 - Copy the required entities/ service classes to the API-Platform bundle project (repository classes need fiddling to work with API)
 
@@ -51,3 +57,4 @@ in main project:
 - check config/bundles.php has been updated with bundle
 - if API-Platform doesn't find the entities, add the path in config/packages/api-platform.yaml (mapping -> paths)
 - if the bundle controller/ routes doesn't work copy the Resources/config/inflyter.yaml in config/routes
+	- TODO: copy automatically via composer/ extension/ flex recipe?
