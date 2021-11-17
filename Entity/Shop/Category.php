@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Dummy implementation for the bundle - should be replaced by real entity
  * @ORM\Entity()
+ * @ORM\Table(name="category_boutique_test")
  */
 
 class Category implements CategoryInterface
