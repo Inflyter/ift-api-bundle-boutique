@@ -4,7 +4,6 @@ namespace Inflyter\BoutiqueBundle\Entity\Shop;
 
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
-use Inflyter\BoutiqueBundle\Model\Shop\CategoryInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -31,8 +30,7 @@ class Boutique
     private int $id;
 
     /**
-     * https://symfony.com/doc/current/doctrine/resolve_target_entity.html
-     * @ORM\OneToOne(targetEntity="Inflyter\BoutiqueBundle\Model\Shop\CategoryInterface", inversedBy="boutique", fetch="LAZY", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="BoutiqueCategory", inversedBy="boutique", fetch="LAZY", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     #[Groups(["read"])]
