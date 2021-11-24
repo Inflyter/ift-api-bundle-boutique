@@ -17,7 +17,7 @@ class BoutiqueCategory extends Category
 
     /**
      * @ORM\OneToOne(targetEntity=Boutique::class, cascade={"persist", "remove"})
-     * @JoinColumn(name="boutique_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="boutique_id", referencedColumnName="id")
      */
     private ?Boutique $boutique;
 
