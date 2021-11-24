@@ -36,7 +36,7 @@ class Boutique
      * @ORM\JoinColumn(nullable=true)
      */
     #[Groups(["read"])]
-    private ?CategoryInterface $category = null;
+    private ?BoutiqueCategory $category = null;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -78,12 +78,12 @@ class Boutique
         return $this->id;
     }
 
-    public function getCategory(): ?CategoryInterface
+    public function getCategory(): ?BoutiqueCategory
     {
         return $this->category;
     }
 
-    public function setCategory(?CategoryInterface $category): self
+    public function setCategory(?BoutiqueCategory $category): self
     {
         $this->category = $category;
 

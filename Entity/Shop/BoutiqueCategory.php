@@ -3,34 +3,22 @@
 
 namespace Inflyter\BoutiqueBundle\Entity\Shop;
 
-use Inflyter\BoutiqueBundle\Model\Shop\CategoryInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Core\Category;
 
 /**
- * Dummy implementation for the bundle - should be replaced by real entity
+ * Adds field to the Core\Category entity
  * @ORM\Entity()
- * @ORM\Table(name="category_boutique_test")
+ * @ORM\HasLifecycleCallbacks
  */
 
-class Category implements CategoryInterface
+class BoutiqueCategory extends Category
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private int $id;
 
     /**
      * @ORM\OneToOne(targetEntity=Boutique::class, mappedBy="category", cascade={"persist", "remove"})
      */
     private ?Boutique $boutique;
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
 
     public function getBoutique(): ?Boutique
     {
