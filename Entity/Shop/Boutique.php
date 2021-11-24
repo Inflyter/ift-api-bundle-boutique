@@ -30,13 +30,6 @@ class Boutique
     private int $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="BoutiqueCategory", inversedBy="boutique", fetch="LAZY", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true)
-     */
-    #[Groups(["read"])]
-    private ?BoutiqueCategory $category = null;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     #[Groups(["read", "write"])]
@@ -74,18 +67,6 @@ class Boutique
     public function getId(): int
     {
         return $this->id;
-    }
-
-    public function getCategory(): ?BoutiqueCategory
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?BoutiqueCategory $category): self
-    {
-        $this->category = $category;
-
-        return $this;
     }
 
     public function getName(): ?string
