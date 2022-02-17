@@ -7,6 +7,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
 
 /**
@@ -75,7 +76,7 @@ class BoutiqueElement
      * @ORM\OneToMany(targetEntity=BoutiqueElementAssets::class, mappedBy="boutiqueElement")
      * @ORM\OrderBy({"position" = "ASC"})
      */
-    private ArrayCollection $boutiqueElementAssets;
+    private PersistentCollection $boutiqueElementAssets;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -134,7 +135,7 @@ class BoutiqueElement
 
     public function __construct()
     {
-        $this->boutiqueElementAssets = new ArrayCollection();
+        $this->boutiqueElementAssets = new PersistentCollection();
     }
 
     public function getId(): ?int
